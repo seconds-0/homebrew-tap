@@ -12,6 +12,17 @@ class GhSwitcher < Formula
     bin.install "gh-switcher.sh" => "ghs"
   end
 
+  def caveats
+    <<~EOS
+      Some features require shell integration:
+      - auto-switch (automatic profile switching)
+      - fish-setup (Fish shell configuration)
+      
+      For these features, see manual installation:
+      https://github.com/seconds-0/gh-switcher#manual-installation
+    EOS
+  end
+
   test do
     assert_match "GitHub Project Switcher", shell_output("#{bin}/ghs help")
   end
